@@ -1,6 +1,7 @@
 import react from "react";
 import { StyleSheet, View, Text } from "react-native-web";
 
+
 export default function About(){
     return(
         <View style={styles.container}>

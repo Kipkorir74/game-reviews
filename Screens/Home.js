@@ -2,6 +2,7 @@ import react, {useState} from "react";
 import { StyleSheet, View, Text, FlatList, TouchableOpacity } from "react-native";
 import Card from '../shared/card';
 
+
 export default function Home({navigation}){
     const [Reviews, setReviews] = useState([
         {key:"1", title:"The Stanley Parable: Ultra Deluxe", body:"You will play as Stanley, and you will not play as Stanley. You will make a choice, and you will become powerless. You are not here to win. The Stanley Parable is a game that plays you.", rating:"3"},
