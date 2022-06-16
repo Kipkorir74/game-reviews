@@ -1,9 +1,12 @@
 import react, {useState} from "react";
-import { StyleSheet, View, Text, FlatList, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, FlatList, TouchableOpacity, Modal } from "react-native";
 import Card from '../shared/card';
-
+import { Ionicons } from '@expo/vector-icons';
 
 export default function Home({navigation}){
+
+    const [modalState, setModalState] = useState(false)
+
     const [Reviews, setReviews] = useState([
         {key:"1", title:"The Stanley Parable: Ultra Deluxe", body:"You will play as Stanley, and you will not play as Stanley. You will make a choice, and you will become powerless. You are not here to win. The Stanley Parable is a game that plays you.", rating:"3"},
         {key:"2", title:"Rogue Legacy 2", body:"Rogue Legacy 2 is what you'd get if you mashed Rogue Legacy and a sequel together. Every time you die, your children will succeed you, and each child is unique. Your daughter might be a Colourblind Archer, and your son could be a Pacifistic Chef. Either way, one of them is getting conscripted.", rating:"4"},
@@ -15,6 +18,26 @@ export default function Home({navigation}){
     }
     return(
         <View style={styles.container}>
+
+            <Modal visible={modalState} animationType = 'slide'>
+                <View style={styles.modalContent}>
+                <Ionicons
+                    name="close"
+                    size={24}
+                    style={{...styles.modalToggle, ...styles.modalClose}}
+                    onPress = {()=> setModalState(false)}
+                />  
+                    <Text> Hello from Here</Text>
+                </View>
+            </Modal>
+
+            <Ionicons
+                name="add"
+                size={24}
+                style={styles.modalToggle}
+                onPress = {()=> setModalState(true)}
+            />  
+
             <FlatList
             data={Reviews}
             renderItem={({item})=>(
@@ -32,5 +55,17 @@ const styles = StyleSheet.create({
     container:{
         padding:24,
         backgroundColor:'#53a69d'
+    },
+    modalToggle:{
+        marginBottom:10,
+        borderWidth:2,
+        borderColor:'#f2f2f2',
+        padding:10,
+        borderRadius:10,
+        alignSelf:'center'
+    },
+    modalClose:{
+        marginTop:20,
+        marginBottom:0
     }
 })
