@@ -24,7 +24,7 @@ export default function Home({navigation}){
                 <Ionicons
                     name="close"
                     size={24}
-                    style={{...styles.modalToggle, ...styles.modalClose}}
+                    style={ styles.modalToggle }
                     onPress = {()=> setModalState(false)}
                 />  
                     <Text> Hello from Here</Text>
@@ -54,7 +54,7 @@ export default function Home({navigation}){
 const styles = StyleSheet.create({
     container:{
         padding:24,
-        backgroundColor:'#53a69d'
+        // backgroundColor:'#53a69d'
     },
     modalToggle:{
         marginBottom:10,
@@ -67,5 +67,8 @@ const styles = StyleSheet.create({
     modalClose:{
         marginTop:20,
         marginBottom:0
+    },
+    modalContent:{
+        flex:3
     }
 })
