@@ -22,7 +22,7 @@ export default function ReviewDetails({route, navigation}){
             <Card>
                 <Text>{title}</Text>
                 <Text>{body}</Text>
-            <View style={styles.rating}>
+                <View style={styles.rating}>
                 <Text> Kizangila's Rating: </Text>
                 <Image style={{width: rating*15, height: 15}} source = {images.ratings[rating]}/>
              </View>
