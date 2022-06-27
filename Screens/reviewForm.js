@@ -1,40 +1,40 @@
 import React from 'react';
- import { Stylesheet, Button, TextInput, View, Text } from 'react-native';
- import { Formik } from 'formik';
+import { Button, TextInput, View, Text, StyleSheet } from 'react-native';
+import { Formik } from 'formik';
 
- export const reviewForm = props => {
+ export default function reviewForm(){
     
     return(
         <View>
             <Formik
             initialValues={{title:'', body:'', rating:''}}
-            onSubmit = {
-            values => console.log(values)
-            }
+            onSubmit = {values=>{
+             console.log(values)
+            }}
             >
-                {({handleChange, handleBlur, handleSubmit, values})=>(
+                {(props)=>(
                     <View>
                         <TextInput
                         style={styles.formInput}
                         placeholder='Review Title'
-                        onChangeText={handleChange('title')}
-                        value={values.title}
+                        onChangeText={props.handleChange('title')}
+                        value={props.values.title}
                         />
 
                         <TextInput
                         style={styles.formInput}
                         placeholder='Review Body'
-                        onChangeText={handleChange('body')}
-                        value={values.body}
+                        onChangeText={props.handleChange('body')}
+                        value={props.values.body}
                         />
 
                         <TextInput
                         style={styles.formInput}
                         placeholder='Rating (1-5)'
-                        onChangeText={handleChange('rating')}
-                        value={values.rating}
+                        onChangeText={props.handleChange('rating')}
+                        value={props.values.rating}
                         />
-                        <Button title='submit' color='blue' onPress={handleSubmit}/>
+                        <Button title='submit' color='blue' onPress={props.handleSubmit}/>
                     </View>
                 )}
 
@@ -42,7 +42,8 @@ import React from 'react';
         </View>
     )
  }
- const styles = Stylesheet.create({
+
+ const styles = StyleSheet.create({ 
     formInput:{
         borderWidth:1,
         borderColor:'#ddd',

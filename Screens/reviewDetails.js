@@ -2,7 +2,7 @@ import react from "react";
 import { StyleSheet, View, Text, Image } from "react-native-web";
 import Card from '../shared/card';
 
-export default function ReviewDetails({route, navigation}){
+export default function ReviewDetails({route}){
     const { title, body, rating } = route.params;
 
     const images = {

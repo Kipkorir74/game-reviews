@@ -2,7 +2,7 @@ import react, {useState} from "react";
 import { StyleSheet, View, Text, FlatList, TouchableOpacity, Modal } from "react-native";
 import Card from '../shared/card';
 import { Ionicons } from '@expo/vector-icons';
-import ReviewDetails from "./reviewDetails";
+import ReviewForm from "./reviewForm";
 
 export default function Home({navigation}){
 
@@ -28,7 +28,7 @@ export default function Home({navigation}){
                     style={ styles.modalToggle }
                     onPress = {()=> setModalState(false)}
                 />  
-                    <ReviewDetails/>
+                    <ReviewForm/>
                 </View>
             </Modal>
 
